@@ -1,0 +1,39 @@
+tous les programmes qui vont utiliser le nokogiri devront commencer par les lignes suivantes :
+
+		require 'rubygems'
+		require 'nokogiri'   
+
+Commande pour traduire une page web html si celle-ci est dans ton ordi (en mode local quoi)
+
+		page = Nokogiri::HTML(open("index.html"))   
+
+Si la page est en ligne il faut aussi le module open-uri  en mode require 'open-uri' puis la commande est la même 
+
+		page = Nokogiri::HTML(open("http://en.wikipedia.org/"))   ==> s'il s'agit d'un doc HTML
+		
+		doc = Nokogiri::XML(xml_document)   ==> s'il s'agit d'un doc XML
+
+
+Si tu veux choper le CSS de certains elements de la page, il suffit de les demander ainsi !
+	
+		puts page.css("title")[0].text   # => My webpage
+
+Pour avoir l'adresse des liens de la page !
+
+		page = Nokogiri::HTML(open(PAGE_URL))
+		links = page.css("a")
+		puts links.length   # => 6
+		puts links[0].text   # => Click here
+		puts links[0]["href"] # => http://www.google.com
+
+XPath est un "language" qui va nous permettre avec Nokogiri de circuler et choper ce que l'on veux dans une page HTML
+Par exemple, le programme :
+
+		require 'open-uri'
+		require 'nokogiri'
+
+		doc = Nokogiri::HTML(open("http://www.google.com/search?q=doughnuts"))
+		doc.xpath('//h3/a').each do |node|
+	  		puts node.text
+		end
+Notamment avec le XPath '//h3/a' demande de sortir tous les #a de la str. HTML qui sont dans un "parent" h3 !
