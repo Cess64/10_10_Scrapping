@@ -56,19 +56,24 @@ else
   n = 0
 
     while  n < 3                           # Boucle sur le nbre de crypto qui écrit son nom et le taux associé 
-                puts "#{names[n]} qui vaut #{rates[n]} $ !"
+                puts "#{names[n]} qui vaut #{rates[n]} !"
   #              puts "---------------"
                 n +=1
             #    i +=1
     end
 end
 
+def create_hash
+hash[crypto_symbol_array.zip(crypto_value_array)]
+end
+
 def Black_Trader
 
-	results = hash.new
+	crypto_name = get_name_crypto()
+	crypto_price = Get_rate_crypto() 
 
-	results.each{|names, rates|}
+	array_hash = hash[crypto_name.zip(crypto_price)] 
 
-		return results
+		return array_hash
 
 end
