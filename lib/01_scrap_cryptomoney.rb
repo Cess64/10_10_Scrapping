@@ -5,7 +5,7 @@ require 'open-uri'                          # gem pour réaliser l'opération su
 
 def get_name_crypto()   # Objectif : récupérer les noms de toutes les cryptomonnaies (sans les () il ne reconnait pas que c'est une fonction quand je l'appelle plus loin dans le code...)
 
-	puts "Il y en a qui bossent ici !! Prière de faire le silence !"
+	puts "SILENCE !!!! ça bosse !! Je commence par récupérer les noms des cryptomonnaies"
 
 	name_cryptomonnaies = Array.new         # création d'un espace pour stocker les noms 
 	 
@@ -28,7 +28,7 @@ end
 
 def Get_rate_crypto()      # *** objectif : récupérer toutes les valeurs des cryptomonnaies sur le marché *** # 
 
-	puts "Shuuuuuuuuuuuuuuut !!!!! J'y suis presque !"
+	puts "Shuuuuuuuuuuuuuuut !!!!! L'étape 1 est finie ! Je m'occupe maintenant de récupérer les cours..."
 
 	rate_cryptomonnaies = Array.new              # création espace pour stocker les taux de change dans une array
 
@@ -51,7 +51,7 @@ rates = Get_rate_crypto()
 if rates.length != names.length then puts "Holy shit, so sorry honey, something happen...I won't be able to give you what you want !"
 
 else
-  puts "Impressed right ??! Voici les 3 cryptomonnaies les plus fortes : "
+  puts "Woaké !! Impressed right ?! Pour info voici les 3 premières cryptomonnaies de ton url : "
  
   n = 0
 
@@ -61,4 +61,14 @@ else
                 n +=1
             #    i +=1
     end
+end
+
+def Black_Trader
+
+	results = hash.new
+
+	results.each{|names, rates|}
+
+		return results
+
 end
